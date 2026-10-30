@@ -1,0 +1,7 @@
+.env
+node_modules/
+data/*
+preview/*
+*.log
+npm-debug.log*
+.DS_Store

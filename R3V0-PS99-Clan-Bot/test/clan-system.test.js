@@ -1,0 +1,29 @@
+import test,{after,beforeEach} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import {DatabaseSync} from 'node:sqlite';import {spawnSync} from 'node:child_process';import {Collection} from 'discord.js';
+const dir=fs.mkdtempSync(path.join(os.tmpdir(),'r3v0-clan-system-'));process.env.DATA_DIR=dir;
+const {db,closeDb,setSetting,recordSnapshot,cleanupSnapshots}=await import('../src/db.js');
+const {storeClanObservation,setBattleGoal,goalsForBattle,getSeasons,seasonMembers,observedProgress}=await import('../src/clan-store.js');
+const {enqueueJob,registerJob,processJob,deliverOnce}=await import('../src/outbox.js');const {createDatabaseBackup}=await import('../src/maintenance.js');
+after(()=>{closeDb();fs.rmSync(dir,{recursive:true,force:true});});beforeEach(()=>db.exec('DELETE FROM outbox;DELETE FROM clan_goals;DELETE FROM season_members;DELETE FROM seasons;DELETE FROM member_snapshots;DELETE FROM settings;'));
+const clan=(id='BattleOne',points=100)=>({name:'R3V0',activeBattleId:id,activeBattle:id,totalBattlePoints:points,updatedAt:Date.now(),members:[{userId:'123',username:'Alpha',points,pointsKnown:points!==null}],raw:{Name:'R3V0'}});
+test('battle transition archives observed scores, including departed roster members',()=>{
+ const a=clan();a.members.push({userId:'456',username:'Departed',points:80,pointsKnown:true});storeClanObservation(a);storeClanObservation(clan('BattleOne',150));storeClanObservation(clan('BattleTwo',10));const history=getSeasons();assert.equal(history.length,2);const old=history.find(s=>s.battle_id==='BattleOne');assert.equal(old.status,'ended');assert.equal(old.total_points,150);assert.equal(seasonMembers(old.id).find(m=>m.user_id==='456').points,80);assert.equal(seasonMembers(old.id).find(m=>m.user_id==='456').present,0);
+});
+test('unknown later scores preserve the last observed archive value without inventing zero',()=>{storeClanObservation(clan());storeClanObservation(clan('BattleOne',null));assert.equal(seasonMembers(getSeasons()[0].id)[0].points,100);});
+test('goal milestones emit once and missing scores cannot complete a goal',()=>{
+ const a=clan();storeClanObservation(a);setBattleGoal({battleId:a.activeBattleId,target:1000,actorId:'staff',clan:a});storeClanObservation(clan('BattleOne',500));storeClanObservation(clan('BattleOne',500));assert.equal(db.prepare("SELECT COUNT(*) AS n FROM outbox WHERE job_key LIKE 'goal:%'").get().n,1);storeClanObservation(clan('BattleOne',null));assert.equal(goalsForBattle('BattleOne')[0].reached_threshold,50);storeClanObservation(clan('BattleOne',1000));assert.equal(goalsForBattle('BattleOne')[0].reached_threshold,100);
+});
+test('goals validate roster membership and positive integer targets',()=>{const a=clan();assert.throws(()=>setBattleGoal({battleId:'BattleOne',target:-1,actorId:'staff',clan:a}),/positive/);assert.throws(()=>setBattleGoal({battleId:'BattleOne',target:10,userId:'999',actorId:'staff',clan:a}),/current R3V0/);});
+test('deleting short-term snapshots does not delete season results',()=>{storeClanObservation(clan());recordSnapshot({battleId:'BattleOne',capturedAt:1,userId:'123',username:'Alpha',points:100});cleanupSnapshots(Date.now());assert.equal(seasonMembers(getSeasons()[0].id)[0].points,100);});
+test('unobserved hourly intervals stay unknown rather than becoming zero',()=>{
+ const now=Date.now();recordSnapshot({battleId:'B',capturedAt:now-4*3600000,userId:'123',username:'Alpha',points:10});recordSnapshot({battleId:'B',capturedAt:now,userId:'123',username:'Alpha',points:100});const progress=observedProgress('123','B',100,now);assert.equal(progress.growth,90);assert.equal(progress.fullDay,false);assert.ok(progress.hourly.some(value=>value===null));assert.equal(observedProgress('123','B',null,now).growth,null);
+});
+test('failed durable work stays pending and can finish on retry',async()=>{
+ let fail=true;registerJob('test-retry',async()=>{if(fail)throw new Error('offline');});const job=enqueueJob('test-retry','test-retry-key',{});await assert.rejects(()=>processJob({},job.id),/offline/);assert.equal(db.prepare('SELECT status FROM outbox WHERE id=?').get(job.id).status,'pending');fail=false;assert.equal(await processJob({},job.id,{force:true}),true);assert.equal(await processJob({},job.id,{force:true}),false);
+});
+test('a remotely accepted message is found by marker instead of being sent twice',async()=>{
+ const messages=new Collection();let sends=0;const client={user:{id:'bot'},channels:{cache:new Map([['channel',{isTextBased:()=>true,messages:{fetch:async()=>messages},send:async payload=>{sends++;const message={id:'1',author:{id:'bot'},components:payload.components};messages.set('1',message);if(sends===1)throw new Error('response lost');return message;}}]])}};
+ const payload={components:[{type:17,components:[{type:10,content:'RECORD-ONE'}]}]};await assert.rejects(()=>deliverOnce(client,'channel',payload,'RECORD-ONE'),/response lost/);assert.equal((await deliverOnce(client,'channel',payload,'RECORD-ONE')).id,'1');assert.equal(sends,1);
+});
+test('verified backup can be restored by the offline restore command',()=>{
+ setSetting('restoration_probe',{value:'saved'});const backup=createDatabaseBackup({force:true});assert.ok(fs.existsSync(backup));const check=new DatabaseSync(backup,{readOnly:true});assert.equal(check.prepare('PRAGMA integrity_check').get().integrity_check,'ok');check.close();const target=path.join(dir,'restore-target');const result=spawnSync(process.execPath,['scripts/restore-backup.js',backup,'--bot-stopped'],{env:{...process.env,DATA_DIR:target},encoding:'utf8'});assert.equal(result.status,0,result.stderr);const restored=new DatabaseSync(path.join(target,'r3v0-clan-bot.sqlite'),{readOnly:true});assert.equal(JSON.parse(restored.prepare("SELECT value FROM settings WHERE key='restoration_probe'").get().value).value,'saved');restored.close();
+});

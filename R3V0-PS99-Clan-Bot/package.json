@@ -1,0 +1,23 @@
+{
+  "name": "r3v0-ps99-clan-bot",
+  "version": "2.1.0",
+  "private": true,
+  "type": "module",
+  "description": "R3V0 clan system with PSX Classic public points, leaderboard and Canvas comparisons",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "check": "node scripts/check.js",
+    "test": "node --test --test-concurrency=2 test/*.test.js",
+    "preview": "node scripts/preview.js",
+    "precheck": "node scripts/cleanup-legacy-emojis.js",
+    "restore": "node scripts/restore-backup.js"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.80",
+    "discord.js": "^14.22.1",
+    "dotenv": "^16.6.1"
+  }
+}

@@ -1,0 +1,11 @@
+R3V0 PS99 Clan Bot — Version 1.8.1
+
+CRITICAL FIX — LIVE BATTLE POINTS
+- Parses the live /api/clan/R3V0 response format: Battles[activeBattleId].PointContributions.
+- Uses the matching battle snapshot's Points value as the authoritative clan total.
+- Supports legacy Contribution.Battle as a backwards-compatible format.
+- Requires the exact active battle ID when reading Battles so historical scores cannot leak into the current leaderboard.
+- Adds diagnostics for battle IDs and the exact contribution path.
+- Adds regression tests based on the exact live FantasyBattle2026 payload supplied by the R3V0 operator: 251,800 total points and 12/12 known roster values, including zero for roster members absent from the contribution array.
+
+The Components V2 Clan Battle panel, Guess Huge name game and welcome handler fix from 1.8.0 are retained.

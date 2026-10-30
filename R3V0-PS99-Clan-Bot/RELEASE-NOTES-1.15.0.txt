@@ -1,0 +1,10 @@
+R3V0 PS99 Clan Bot — Version 1.15.0
+
+- Renamed the public game command to /guess-pet and its leaderboard to /guess-pet-top.
+- Replaced the legacy Guess Pet embed with a single Components V2 container.
+- The image is rendered exactly once, inside a Media Gallery in the card; it is no longer both a top-level attachment preview and an embed image.
+- Preserved image preloading and the synchronized countdown before guesses open.
+- Preserved letter hints, first-correct-answer round closure, and SQLite leaderboard persistence.
+- Updated static and integration regression tests for the new command names and one-image layout.
+
+Deployment: upload this project to GitHub and redeploy on Railway. Keep the existing /app/data volume to preserve SQLite records. Guild slash commands are bulk-registered at startup, so the old /guess-huge command is replaced by /guess-pet.

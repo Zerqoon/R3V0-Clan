@@ -1,0 +1,19 @@
+R3V0 PS99 Clan Bot — Version 1.8.0
+
+CHANGES
+- Clan Battle has been rebuilt as a purple Discord Components V2 Container card, like the recruitment/ticket panel style.
+- Refresh, Previous and Next are real Section button accessories inside the card. No legacy embed or Canvas image is mixed into the V2 message.
+- The first successful refresh replaces the legacy Clan Battle message; future refreshes update the saved V2 message.
+- /guess-huge now shows an image and asks the player to guess the Huge pet's exact name. All answer choices are Huge/Titanic/Gargantuan pets; regular pets are not candidates. One guess per user, answer revealed on submission or after the 60-second round.
+- Fixed GuildMemberAdd welcome handling to pass renderWelcomeCanvas instead of the undefined renderWelcome variable.
+- API non-2xx errors now include the response message when the API provides one.
+- When the current battle endpoint's full top-100 clan sample and the healthy top-25 player sample both exclude R3V0, the bot skips futile repeated direct lookups and preserves unknown points as Not reported. The reason appears in /r3v0-status.
+- Updated automated regression guards and Components V2 integration tests.
+
+VALIDATION PERFORMED IN THE BUILD WORKSPACE
+- npm run check: PASS (syntax checks for 33 JavaScript files and static feature regression guards).
+- Dependency-light test subset: PASS (18/18 tests).
+- Full npm test / live Discord API integration could not be completed in this workspace because project npm dependencies were not installed and npm install did not complete. Install dependencies with npm install and run npm test in the deployment/build environment before publishing.
+
+BATTLE DATA LIMITATION
+The public Big Games battle/player endpoints return sampled rankings. When the R3V0 clan is absent from those sources and the direct clan payload doesn't report member contributions, the bot cannot safely invent points or infer them from another clan. Missing values remain Not reported.

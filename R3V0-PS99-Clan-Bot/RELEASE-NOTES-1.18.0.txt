@@ -1,0 +1,23 @@
+R3V0 1.18.0 — CLAN BATTLE DASHBOARD
+
+Nowy ranking graficzny: duży wynik, trzy karty podium, tabela graczy i procent udziału.
+Oryginalne logo i banner zostały zachowane bez zmian w plikach assets.
+
+Na pierwszej stronie TOP 3 jest na podium, a miejsca 4–10 w tabeli.
+Kolejne strony pokazują dalszych graczy. Nie ma duplikowania tych samych osób na stronie.
+Zero punktów nie usuwa gracza z rankingu. Nieznany wynik pozostaje nieznany.
+Procenty liczone są od sumy raportowanych punktów obecnych członków klanu.
+Oficjalny wynik całego klanu jest prezentowany osobno i nie jest zastępowany wymyśloną sumą.
+Gdy globalna pozycja nie jest raportowana, jej status można sprawdzić w Details.
+
+Przyciski: Refresh / Back / Next / Details.
+Details otwiera ten sam ranking jako prywatną odpowiedź tekstową, z danymi o końcu bitwy i kick status.
+Odświeżanie podmienia aktualny obraz, zachowując ID istniejącej wiadomości V2.
+Nieudana aktualizacja nie usuwa ostatniej poprawnej wiadomości ani nie zmienia zapisanej strony.
+Wysokość karty dostosowuje się do liczby graczy na stronie.
+
+PODGLĄD: preview/clan-battle.html — przykładowe dane, działające przewijanie i Details.
+POZOSTAŁE PANELE: preview/index.html.
+WDROŻENIE: podmień pliki i zrób redeploy na Railway, zachowując Variables i Volume /app/data.
+Weryfikacja: kontrola składni, 85 testów, renderowanie i przeglądarkowy podgląd desktop/mobile.
+Zalogowanego bota Discord nie uruchamiano w tym środowisku.

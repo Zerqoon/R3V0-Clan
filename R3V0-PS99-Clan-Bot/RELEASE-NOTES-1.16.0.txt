@@ -1,0 +1,11 @@
+R3V0 PS99 CLAN BOT 1.16.0
+
+- Added automatic server emoji setup at startup.
+- Added /setup-emojis and /emoji-status.
+- Added 32 bundled R3V0 UI icon assets under assets/emojis.
+- Added official PS99 artwork resolution: Huge pet artwork can come from BIG Games official GitHub Pet Icons, while pet/egg/gift/gem artwork can come from the BIG Games public API.
+- Added safe local/Unicode fallbacks when external artwork, permissions, or emoji slots are unavailable.
+- Wired the shared emoji registry into Clan Battle, recruitment tickets, giveaways, Guess Pet, RAP, Arcade, and status panels.
+- Bot never deletes existing server emojis during automatic setup.
+
+Required Discord permission for automatic installation: Manage Expressions.

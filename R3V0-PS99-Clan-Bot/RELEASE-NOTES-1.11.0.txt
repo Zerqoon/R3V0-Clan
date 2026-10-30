@@ -1,0 +1,24 @@
+R3V0 PS99 CLAN BOT 1.11.0
+
+Clan Battle
+- Added a wide, banner-first Components V2 card using the R3V0 clan banner in a full-width media gallery.
+- Added the real R3V0 clan icon as the header thumbnail accessory.
+- Put Refresh, Previous and Next in a single in-card action row.
+- Migrates older/unstyled panels once, then retains the banner attachment on later edits instead of re-uploading it.
+
+Guess Huge
+- Removed multiple-choice answer buttons; users type the Huge name directly in the same channel.
+- Word initials appear at the start and one extra letter is revealed every 8 seconds.
+- A player can submit one recognized guess per round; misses receive a red X reaction.
+- First correct answer closes and edits the original public game message and updates the persistent SQLite rankings.
+- The answer is revealed if the 60-second round expires.
+
+Player search / Canvas
+- Set the supplied R3V0 clan art as a dark, center-safe background for player-search and welcome Canvas images.
+- Expanded the player progress Canvas to 700px high with a larger 24-hour chart, rounded scale, clearer horizontal/vertical guides, 7 time labels and a peak label.
+- Uses image cover-cropping instead of stretching the background and keeps the data on translucent dark panels.
+
+Verification
+- `npm run check` verifies JS syntax and project feature guards.
+- Pure Guess Huge input/hint unit tests are in `test/guess-huge-game.test.js`.
+- Full Discord.js/Canvas integration and rendering need the project's runtime dependencies; run `npm test && npm run preview` in Railway/Docker build logs.

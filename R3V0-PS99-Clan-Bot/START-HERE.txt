@@ -1,0 +1,56 @@
+R3V0 CLAN SYSTEM 2.1.0 — START
+
+1. Wgraj CAŁĄ zawartość tego folderu do katalogu głównego repozytorium bota.
+   Zastąp także src, scripts, test, package.json, package-lock.json i Dockerfile.
+   Nie wgrywaj folderu node_modules ani lokalnej bazy z innego komputera.
+2. Zachowaj obecne Railway Variables oraz Volume /app/data. Nie kasuj bazy.
+   Aktualizacja dodaje nowe tabele i zachowuje dotychczasowe dane.
+3. Zrób redeploy z Dockerfile. Build wykonuje check, test i preview osobno.
+4. Sprawdź /staff -> Diagnostics. Ustaw kanały, role i wymagania rekrutacji.
+   Opcjonalną rolę Verified możesz wybrać w /staff -> Settings -> roles -> verified.
+5. Połącz konto: /link -> wklej kod do About/Description na profilu ROBLOX ->
+   zapisz profil -> Verify code. Połączenie zapisuje się na Volume.
+6. Otwórz /profile, /donations i /goals. Cele ustawia staff przez /staff.
+
+PSX CLASSIC — NOWE KOMENDY PUBLICZNE
+/psx-leaderboard [page] — globalny ranking z grafiką Canvas i wykresem.
+/psx-points — wynik połączonego konta, pozycja i punkty do następnej osoby.
+/psx-points roblox:username — sprawdzenie dowolnego gracza.
+/psx-points member:@osoba — konto powiązane przez wskazaną osobę.
+Podaj roblox albo member; oba parametry są opcjonalne.
+Wyniki komend widzą wszyscy na kanale. Strony otwierają prywatny widok.
+API odświeża dane mniej więcej co minutę i publikuje do TOP 10000 live.
+Brak dostępnego rekordu oznacza nieznany wynik, nie zero.
+Nie trzeba dodawać nowych Variables. Clan Battle pozostaje tekstowy.
+Podgląd: preview/psx-classic.html. Szczegóły: docs/PSX-CLASSIC.md.
+
+TICKETY
+Panel ma dwie opcje: PS99 i Classic PSX, z przyciskami wewnątrz karty V2.
+Przycisk otwiera formularz. Staff może Claim, Accept, Decline, Waitlist i Close.
+Nie ma okresów próbnych. Decyzja nie udaje przyjęcia do klanu w grze.
+Weryfikowana rola klanowa jest przyznawana tylko powiązanemu kontu obecnemu
+w autorytatywnym rosterze API. Wymagań dotyczących petów i Game Passów
+staff nie potwierdza samym kliknięciem: sprawdza informacje i screeny gracza.
+Zamknięcie najpierw zapisuje transkrypt i wysyła go do ticketLogs.
+Dopiero po dostarczeniu archiwum bot planuje usunięcie kanału.
+Błędy są ponawiane. Staff może użyć /staff -> Retry pending jobs.
+Zapisany tekst można odzyskać przez /ticket-archive ticket-id.
+
+DONATE GEMÓW — WAŻNE
+Bot automatycznie czyta DiamondContributions.AllTime.Data z /api/clan/R3V0.
+Pierwszy odczyt zapisuje stan początkowy; nie spamuje starymi wpłatami.
+Kolejne wzrosty liczników graczy są zapisywane i logowane jeden raz.
+Sprawdzanie odbywa się co minutę; dostępność i świeżość danych zależą od API.
+Kilka wpłat między odczytami może być pokazanych jako jeden łączny przyrost.
+DepositedDiamonds to obecne saldo klanu, a nie suma wszystkich wpłat.
+Webhook i /log-gem-deposit zapisują potwierdzenia oczekujące na API;
+nie zwiększają oficjalnych sum i nie naliczają tej samej wpłaty drugi raz.
+
+PODGLĄD
+preview/index.html — wszystkie panele.
+preview/tickets.html — rekrutacja i otwarty ticket.
+preview/clan-battle.html — natywna tablica z prywatnym rankingiem.
+preview/profile.html oraz verification.html — profil i łączenie kont.
+To przykładowe dane offline, a nie połączenie z Twoim Discordem.
+
+Szczegóły: README.md, RAILWAY.md, docs/DONATIONS.md.

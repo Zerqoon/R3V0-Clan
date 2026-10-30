@@ -1,0 +1,18 @@
+R3V0 1.18.1 — NATIVE CLAN BATTLE
+
+Clan Battle przebudowany na natywne komponenty Discorda.
+Wynik klanu, nicki, podium TOP 3, punkty i udział procentowy są normalnym, zaznaczalnym tekstem.
+Dwie karty: podsumowanie klanu oraz wkład członków.
+Oryginalne logo i banner pozostają jako branding.
+
+Usunięto src/battle-canvas.js oraz wygenerowane obrazy rankingu z paczki.
+Pozostałe funkcje bota, w tym wcześniejsze karty profilu i powitania, pozostają bez zmian.
+
+Przyciski: Refresh / Back / Next / Details.
+Migracja zachowuje ID obecnej wiadomości Components V2 i usuwa stary obraz rankingu.
+Kolejne odświeżenia edytują tekst oraz zachowują załączone logo i banner.
+
+PODGLĄD: preview/clan-battle.html — przykładowe dane i przybliżenie układu natywnego Discorda.
+WDROŻENIE: wgraj pliki, redeploy na Railway, zachowaj Variables i Volume /app/data.
+
+WERYFIKACJA: 85/85 testów, kontrola składni, podgląd desktop/mobile, przewijanie i Details.

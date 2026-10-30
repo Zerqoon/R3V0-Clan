@@ -1,0 +1,34 @@
+R3V0 PS99 Clan Bot 1.17.0 — CLAN REDESIGN
+
+Wykorzystane zostały oryginalne obrazy przesłane przez użytkownika:
+assets/r3v0-logo.png oraz assets/r3v0-banner.png. Ich bajty pozostają bez zmian.
+W paczce nie ma nowego logo ani zastępczego maskotkowego herbu.
+
+ZMIANY WYGLĄDU
+- Jeden motyw: czerń, ametyst, jasne srebro i stonowane kolory statusów.
+- Ranking: pełny klanowy banner, oryginalne logo, sekcje, natywne separatory i przyciski w karcie.
+- Rekrutacja: banner, wymagania obu gier, pasek zajętych miejsc i liczba wolnych miejsc.
+- Welcome: nowy układ, portret, oryginalne logo, numer członka społeczności i dopasowanie długich nicków.
+- Profil: klanowe logo, 5 kart statystyk, dane godzinowe, skala i oznaczenie najlepszego wyniku.
+- Giveaway: nowy układ nagrody, czasu i uczestników; banner klanu, gdy nie podano zdjęcia nagrody.
+- Arcade, RAP, tabela punktów, regulamin, moderacja i logi: wspólne nagłówki, kolory i identyfikacja klanu.
+
+DZIAŁANIE I WDROŻENIE
+- Grafiki rankingu i rekrutacji są zachowywane przy kolejnych odświeżeniach.
+- Nowa wersja wyglądu odświeża załączniki rankingu jednokrotnie.
+- Wybrane własne zdjęcie nagrody nadal jest używane w giveaway.
+- Komendy, uprawnienia, wymagania rekrutacji, SQLite oraz oficjalny instalator emoji PS99 zachowane.
+- Zachowaj obecne Variables i Volume /app/data na Railway.
+- Docker korzysta z package-lock.json i npm ci, aby używać zweryfikowanych wersji zależności.
+
+PODGLĄD
+Otwórz preview/index.html po rozpakowaniu. Podgląd jest offline i zawiera przykładowe dane.
+Powstaje z rzeczywistych builderów Discord.js. Ostateczne tło, odstępy i kolory przycisków ustala Discord.
+Karty welcome.png i player-progress.png są rzeczywistym wynikiem renderowania Canvas.
+
+SPRAWDZENIE
+npm run check — OK
+npm test — 81/81
+npm run preview — OK
+Testy obejmują serializację Discord Components V2, zachowanie załączników i brak resetowania istniejącej wiadomości V2.
+Uruchomienia na zalogowanym bocie Discord nie wykonywano w tym środowisku.

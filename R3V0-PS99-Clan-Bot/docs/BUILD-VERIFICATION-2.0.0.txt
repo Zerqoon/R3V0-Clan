@@ -1,0 +1,20 @@
+R3V0 2.0.0 — BUILD VERIFICATION
+
+Runtime: Node v22.23.4; npm 10.9.9; NODE_ENV=production.
+Fresh dependency install: npm ci --omit=dev --no-audit --no-fund — PASS.
+Check: 82 JavaScript files and feature guards — PASS.
+Tests: 139 total, 139 passed, 0 failed, 0 skipped — PASS.
+Preview generation: native Clan Battle, tickets, profile, linking, treasury and staff — PASS.
+
+Browser QA: 390px viewport without horizontal overflow; private ranking pagination, ticket form and verification preview — PASS.
+Upgrade coverage: existing 1.x settings and tickets retained, repeat migrations safe.
+Failure coverage: duplicate tickets, lost channel-create response, archive delivery failure, transcript fetch error, repeated donation counters, regression/rebound, new donor, receipt idempotency, verification expiry and identity conflicts, giveaway delivery and reroll concurrency.
+Backup: created, integrity-checked, restored by CLI, saved value read successfully.
+
+Original branding SHA-256:
+r3v0-logo.png: f8e62d79b8fa90ed64c1a239d6f466979a99bf65e3a0bfb6bf4743d492195ed4
+r3v0-banner.png: f1c272ec4d88ab884a2c6e9636dd100f1e0d2001e4d055d5e04a811a6e14302a
+
+The production command chain was executed locally with fresh Node 22 dependencies.
+Docker was not executed here and no live Discord bot token was used.
+Preview data is isolated in temporary SQLite and is removed after generation.

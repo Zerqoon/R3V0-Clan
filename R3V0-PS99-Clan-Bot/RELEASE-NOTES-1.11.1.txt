@@ -1,0 +1,12 @@
+R3V0 PS99 CLAN BOT 1.11.1
+
+CI / regression tests
+- Fixed the only failing test in the 1.11.0 Railway build.
+- Updated the Clan Battle layout test for the current wide, banner-first Components V2 implementation.
+- Now asserts that the panel uses the in-card `controls` row, adds the full-width `r3v0-banner.jpg` gallery, attaches the banner on initial creation and retains existing attachments during edits.
+- No production panel behavior was changed by this regression-test fix.
+
+Validation target
+- `npm run check`
+- `npm test`
+- `npm run preview`

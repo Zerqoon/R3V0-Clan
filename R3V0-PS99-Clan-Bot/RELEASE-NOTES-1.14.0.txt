@@ -1,0 +1,15 @@
+R3V0 PS99 Clan Bot 1.14.0
+
+Pet Scramble
+- Keeps Huge, Titanic, or Gargantuan readable as a separate rarity field.
+- Shuffles letters independently inside each word; it no longer scatters letters between words.
+- The progressive hint applies only to the pet name after the displayed rarity. Both the complete pet name and the name without its displayed rarity are accepted.
+
+Emoji Pet
+- Replaced fuzzy substring matching with a curated semantic clue dictionary matched by complete words and phrases.
+- Specific phrases (for example, Hell Rock) take precedence over overlapping generic tokens (for example, Rock).
+- Added explicit Vampire, Snowflake, Leprechaun, and Moon clue rules so unrelated themes do not cross-trigger.
+- Adds explanatory hints every 12 seconds, with the target image hidden until the round finishes.
+
+Verification
+- Added regression coverage for per-word anagrams, readable rarity, exact clue matching, misleading substring cases, and unrelated clue separation.

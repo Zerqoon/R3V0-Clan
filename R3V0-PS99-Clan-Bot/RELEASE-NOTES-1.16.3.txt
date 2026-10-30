@@ -1,0 +1,8 @@
+R3V0 PS99 Clan Bot 1.16.3
+
+Build / emoji cleanup fix
+- Adds an npm precheck step that removes stale image files from assets/emojis before regression guards run.
+- Fixes Railway builds when old AI/local emoji PNG files from 1.16.0 are still present in the GitHub repository after overwriting newer project files.
+- The runtime emoji installer still uses only official BIG Games / PS99 sources.
+- Generic UI symbols continue to use Unicode fallbacks instead of generated artwork.
+- The official-image regression guard remains enabled after cleanup, so new local emoji artwork cannot silently re-enter the build.

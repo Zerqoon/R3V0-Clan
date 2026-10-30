@@ -1,0 +1,17 @@
+R3V0 PS99 Clan Bot 1.9.0 — Giveaway System
+
+NEW
+- /create-giveaway uses Discord's native slash-command form.
+- Fields: prize, duration, winners, channel, required role, minimum server messages, minimum Discord-account age, minimum server age, bonus role, bonus entries, description and image.
+- Image can be provided as a HTTPS URL or an uploaded image attachment (max 10 MB).
+- Participants use a join/leave button; one participant row per user.
+- Bonus-role tickets are weighted chance, not duplicate rows. Winners are unique.
+- Giveaways, entries and observed message counts persist in SQLite.
+- Automatic end-and-draw, /end-giveaway and /reroll-giveaway.
+- Eligibility is checked when entering and again before drawing.
+
+IMPORTANT
+- Discord slash command names must be lowercase: /create-giveaway.
+- min-messages counts human messages observed after version 1.9.0 starts. Discord does not expose old message totals to backfill.
+- Keep DATA_DIR on persistent storage on Railway.
+- Requires Node.js 22.13+ and the project's discord.js dependency.

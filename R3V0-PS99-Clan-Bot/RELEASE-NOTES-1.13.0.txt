@@ -1,0 +1,9 @@
+R3V0 PS99 CLAN BOT 1.13.0 — IN-EMBED IMAGE COUNTDOWN
+
+- Guess Huge now displays an in-embed 5-to-1 countdown before revealing the Huge picture and opening the 60-second round.
+- The picture is fetched during the countdown and uploaded as an attachment served by Discord when possible, so users do not depend solely on the public PS99 image URL.
+- Guess Huge hint and result edits explicitly retain the uploaded attachment.
+- Pet Scramble and Emoji Pet use the same start countdown; their target image stays hidden until the round closes, then is attached to Discord when possible.
+- Higher or Lower preloads both pet images during the countdown and opens A/B voting only when the round begins.
+- Image download is HTTPS-only, validates image MIME type, enforces a 7.5 MB limit and has a timeout; failed downloads use the original URL as a fallback.
+- Added seven direct tests for image loading safeguards, attachment reference/retention and countdown order.

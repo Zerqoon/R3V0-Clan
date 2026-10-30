@@ -1,0 +1,40 @@
+(node:5) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> r3v0-ps99-clan-bot@2.1.0 precheck
+> node scripts/cleanup-legacy-emojis.js
+
+(node:18) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[emoji-cleanup] No legacy local emoji artwork found.
+
+> r3v0-ps99-clan-bot@2.1.0 check
+> node scripts/check.js
+
+(node:27) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[check] Syntax OK for 89 JavaScript files and feature regression guards.
+
+
+1..166
+# tests 166
+# suites 0
+# pass 166
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 24320.242127
+
+
+(node:1863) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> r3v0-ps99-clan-bot@2.1.0 preview
+> node scripts/preview.js
+
+(node:1876) [UNDICI-EHPA] Warning: EnvHttpProxyAgent is experimental, expect them to change at any time.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[database] SQLite opened: /tmp/r3v0-preview-mvF35b/r3v0-clan-bot.sqlite
+[preview] Created native Clan Battle, tickets, account linking, profiles, staff and PSX Classic Canvas previews; legacy welcome/player images are included.
+(node:1876) ExperimentalWarning: SQLite is an experimental feature and might change at any time

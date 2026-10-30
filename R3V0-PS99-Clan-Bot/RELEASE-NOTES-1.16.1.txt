@@ -1,0 +1,9 @@
+R3V0 PS99 Clan Bot 1.16.1 — Official PS99 Emoji Sources Only
+
+- Removed every generated/local custom emoji PNG from the project.
+- Server custom emojis are created only from official BIG Games / Pet Simulator 99 artwork.
+- Pet icons attempt the BIG Games GitHub Pet Icons directory and otherwise use the official PS99 collections/image API.
+- Added official collection lookups for Pets, Eggs, Currency, Lootboxes, GuildBattles, Ranks, Merchants, Charms, Enchants, Hoverboards, Ultimates, Booths, Potions and Fruits.
+- Generic UI icons use Unicode fallbacks rather than fake custom art.
+- Clan Battle uses the official PS99 battle/rank emoji when available and keeps the real clan icon from the clan API.
+- /setup-emojis and /emoji-status report official artwork sources.

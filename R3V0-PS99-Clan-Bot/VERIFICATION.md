@@ -1,0 +1,34 @@
+# R3V0 2.1.0 verification
+
+R3V0 2.1.0 — BUILD VERIFICATION (30 October 2026)
+
+Runtime: Node v22.23.4; npm 10.9.9; NODE_ENV=production.
+Fresh npm ci --omit=dev --no-audit --no-fund: PASS (29 packages).
+npm run check: PASS, 89 JavaScript files and regression guards.
+npm test: PASS, 166/166 tests, 0 failed, 0 skipped.
+npm run preview: PASS, 14 panels including PSX Classic Canvas charts.
+The exact production check/test/preview chain ran with a clean dependency install.
+No Docker daemon or live Discord token was used.
+
+PSX Classic live API: PASS, official PSXRebornEggs top page and individual
+Roblox user 1308591016. An observed result was 53129 points, rank 597,
+next player rank 596 with 53172 points; 44 points to pass that score.
+These are timestamped verification results, not hardcoded production values.
+
+27 new PSX tests cover real response parsing, wrong-board rejection,
+missing/invalid scores, exact user identity, final sources, in-flight dedup,
+persisted outage fallback, unknown outside-depth players, contest rollover,
+one-page and cross-page comparisons, ties, moved players, partial outages,
+public commands, private paging, immutable refresh targets and real PNGs.
+All previous 139 clan/account/ticket/donation/giveaway/backup tests still pass.
+
+Browser QA: PASS, no JavaScript errors or horizontal overflow at 390px.
+Checked original native Clan Battle, private ranking, tickets, verification,
+PSX Classic chart images and the PSX lookup form/My points controls.
+Both PSX PNGs were inspected visually at full resolution; logo preserved.
+Preview data stays in a temporary database and is removed after generation.
+Preview charts are clearly marked DEMO / OFFLINE.
+
+Original branding SHA-256:
+r3v0-logo.png: f8e62d79b8fa90ed64c1a239d6f466979a99bf65e3a0bfb6bf4743d492195ed4
+r3v0-banner.png: f1c272ec4d88ab884a2c6e9636dd100f1e0d2001e4d055d5e04a811a6e14302a

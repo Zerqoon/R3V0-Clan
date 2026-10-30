@@ -1,0 +1,12 @@
+R3V0 PS99 CLAN BOT 1.15.1
+
+PLAYER CANVAS REDESIGN
+- Reworked only renderPlayerCanvas() used by /search-player.
+- Kept renderWelcomeCanvas() and its existing visual treatment separate and unchanged.
+- Introduced a stronger, higher-contrast R3V0 palette with saturated purple, sky blue, mint, and amber accents without neon glow.
+- Reduced the heavy background dimming in the player card while preserving readable text over the clan art.
+- Improved header hierarchy, player identity badge, current rank badge, and metric cards.
+- Rebuilt the chart panel with clearer axes, stronger grid contrast, a clean line, readable peak label, and a legend.
+- Preserved display name, exact known point values, and "Not reported" when points are unknown.
+
+No database schema changes. Keep the existing Railway /app/data volume when deploying.

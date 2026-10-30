@@ -1,0 +1,17 @@
+R3V0 PS99 CLAN BOT 1.12.0
+
+GUESS HUGE VISUAL UPDATE
+- Removed crowded side-by-side live player and pet leaderboards from the running round. Rankings remain in /guess-huge-top.
+- Uses compact word clues, a muted purple accent, clear timer fields, and the pet image.
+- Hints now reveal left-to-right rather than exposing a random letter, so the clue reads naturally.
+
+THREE NEW GAMES
+- /pet-scramble: type the pet name from a scrambled spelling.
+- /emoji-pet: decode a PS99 pet name from thematic emoji clues; the target image stays hidden until the round closes.
+- /higher-lower: use A/B buttons to pick the pet with higher normal RAP; the values are revealed when the round closes.
+- /arcade-top: persistent wins leaderboard for all three new games.
+
+SYSTEM
+- SQLite-backed per-player arcade scores persist across restarts.
+- Shared per-channel lock prevents overlapping Guess Huge, Scramble, Emoji Pet and Higher/Lower rounds.
+- New game-round and stats unit tests added.

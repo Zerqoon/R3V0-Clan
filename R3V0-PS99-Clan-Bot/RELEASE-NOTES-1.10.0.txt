@@ -1,0 +1,25 @@
+R3V0 PS99 CLAN BOT 1.10.0
+
+Clan Battle
+- Rebuilt the Components V2 panel using compact headings and a clear member ranking.
+- Removed ornamental divider strings and repetitive stars after point totals.
+- Kept Refresh, Previous and Next controls inside the same V2 card.
+- Uses a restrained purple accent and more concise battle summary text.
+
+Guess Huge
+- A correct answer now closes the public round immediately.
+- The same message displays the winner and the correct Huge name.
+- Every answer button is disabled as soon as the round is won.
+- Wrong guesses no longer leak the correct answer to the rest of the server.
+- Added persistent all-time player scores and a leaderboard of the most-identified Huge pets.
+- Added /guess-huge-top.
+
+Player progress Canvas
+- Replaced bright neon accents with muted, readable colors.
+- Removed the background grid, multicolor gradient frame, and chart glow.
+- Kept the avatar, current points, progress cards, and hourly chart.
+
+Data and testing
+- Added SQLite tables for correct player guesses and correct Huge-pet identifications.
+- New tables are created automatically by the existing SQLite schema initializer.
+- Slash command registration is refreshed by the existing startup command registration.

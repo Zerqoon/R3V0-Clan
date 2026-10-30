@@ -1,0 +1,18 @@
+R3V0 CLAN SYSTEM 2.0.0
+
+- Natywne Components V2: rekrutacja, wnętrze ticketów, profil, skarbiec, giveaway i staff.
+- Weryfikacja Roblox przez losowy, wygasający kod w opisie profilu. Unikalne połączenia.
+- Formularze PS99/PSX, opiekun zgłoszenia, decyzja z powodem, lista oczekujących. Bez okresów próbnych.
+- Jeden aktywny ticket, rezerwacje tworzenia i odzyskanie kanału po przerwanej odpowiedzi Discorda.
+- Trwałe transkrypty TXT/HTML, archiwizacja przed usunięciem, automatyczne ponawianie.
+- Prawidłowy odczyt DiamondContributions.AllTime.Data; rozdzielenie salda i wpłat.
+- Liczniki maksymalne, atomowy ledger i kolejka logów; bez powielania po restarcie.
+- Pierwszy odczyt jako baza. Nowi darczyńcy wykrywani po kompletnym odczycie.
+- Webhook z eventId; potwierdzenia nie zwiększają oficjalnych sum.
+- Stałe publiczne TOP 10; pełny ranking i jego strony są prywatne.
+- Cele klanu/członków, progi powiadomień, archiwum bitew i uczestników.
+- Panel /staff: kanały, role, wymagania, cele, diagnostyka, backup i ponawianie kolejki.
+- Zachowanie ostatnich dobrych danych, współdzielenie odczytów, ponawianie błędów API.
+- Trwałe ogłoszenia giveaway i ochrona przed równoczesnym rerollem.
+- Obsługa przerwanych gier po restarcie, kopie SQLite z weryfikacją i narzędzie restore.
+- Oryginalne logo/banner zachowane. Clan Battle pozostaje tekstem Discorda, bez Canvasu.

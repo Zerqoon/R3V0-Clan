@@ -1,0 +1,18 @@
+R3V0 2.1.0 — PSX CLASSIC POINTS & CANVAS
+
+Public /psx-leaderboard [page] and /psx-points [roblox] [member].
+Most Rare Pet Points comes from the official PSXRebornEggs event board.
+Canvas rankings and personal comparison charts use the original R3V0 logo.
+Personal result includes global position, next player, score gap, points to
+pass their score, and the lead over the following player when comparable.
+Ties require one additional point to lead in score. No invented hourly trend.
+V2 controls: My points, Find player, Refresh, Previous, Next, View position.
+No argument uses the account connected through /link. Results are public.
+Page browsing opens a private copy. Refresh preserves the selected account.
+Same-snapshot checks prevent cross-page comparisons from mixed data.
+Bounded persisted one-minute cache and labelled outage fallback.
+Missing or below-depth players have unknown scores, never invented zeros.
+Final standings are selected automatically once published by BIG Games.
+No new Variables or API tokens required. All 2.0 clan systems are retained.
+Clan Battle remains native Discord text. Only PSX Classic gains Canvas.
+Offline previews: preview/psx-classic.html, psx-points.png, psx-leaderboard.png.

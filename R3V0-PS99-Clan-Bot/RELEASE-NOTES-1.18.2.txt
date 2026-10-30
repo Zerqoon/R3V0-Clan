@@ -1,0 +1,12 @@
+R3V0 1.18.2 — BUILD FIX
+
+Odtworzono dwie awarie po aktualizacji przez nadpisanie plików:
+1. Ze starszej wersji 1.18.0 zostawał src/battle-canvas.js. Samo istnienie nieużywanego pliku blokowało npm run check.
+2. Ze starszej wersji 1.17.0 zostawał test/clan-canvas.integration.test.js, który wymagał poprzedniego układu jednej karty.
+
+Naprawa sprawdza aktywny kod natywnego panelu, zachowuje wszystkie kontrole i dostarcza nowy test pod starą ścieżką do nadpisania.
+Dodano test regresji pozostałości w repozytorium.
+Kroki check / test / preview w Dockerfile rozdzielono, aby ewentualny błąd wskazywał konkretny etap.
+
+Clan Battle pozostaje natywny. Bez zmian w danych, Variables i Volume /app/data.
+Wgraj całą paczkę, nie tylko src, i wykonaj redeploy.

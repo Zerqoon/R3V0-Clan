@@ -1,0 +1,8 @@
+R3V0 PS99 Clan Bot 1.16.2
+
+- Hard-verifies guild emoji creation by fetching every created emoji back from Discord.
+- Performs a final authoritative guild emoji fetch and reports the actual guild name/ID and emoji counts.
+- Uses Create Guild Expressions permission when available, with legacy compatibility.
+- Stops using custom emoji IDs in Discord buttons; buttons use Unicode so deleted/stale emoji can never break Components V2.
+- /emoji-status now reports what Discord actually says is present.
+- Official BIG Games / PS99 artwork only; no AI/local generated emoji assets.

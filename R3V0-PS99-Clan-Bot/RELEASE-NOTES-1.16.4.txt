@@ -1,0 +1,12 @@
+R3V0 PS99 Clan Bot 1.16.4
+
+- Rebuilt official PS99 emoji installer.
+- Discovers the official BIG Games collection list before installing.
+- Handles uppercase and lowercase image fields (Icon/icon/Thumbnail/thumbnail/etc.).
+- Scans nested official config data for real rbxassetid image fields.
+- Caches collection downloads to avoid repeatedly hitting BIG Games.
+- Tries multiple records/assets per collection until a decodable official image is found.
+- Installs a broad 30-item official PS99 pack across Pets, Eggs, Currency, Lootboxes, Charms, Enchants, Potions, Fruits, Hoverboards, Ultimates, Booths, MiscItems, Boxes, FishingRods, Shovels, Sprinklers, WateringCans, Seeds, Ranks plus additional verified Charms, Potions and Lootboxes with known official icon fields.
+- Clan Battle points now use the official PS99 gems emoji when available.
+- /emoji-status reports discovered collections, real installed count, sources and per-item failures.
+- No local/generated emoji artwork is shipped.
